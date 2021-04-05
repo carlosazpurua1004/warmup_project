@@ -24,21 +24,23 @@ class SquareDriver(object):
     def compute_speed(self):
         self.current_speed = self.max_speed * (-1 * abs(13 - self.foward_duration) + 13 )/13
 
+    # runs the publishing while loop of the driver 
     def run(self):
         publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
         r = rospy.Rate(5)
+        # publishes 5 messages per second
         while not rospy.is_shutdown():
-            if self.state == 'foward':
+            if self.state == 'foward': # robot in 'foward' state
                 self.compute_speed()
                 self.foward_duration -= 1
-                if self.foward_duration < 0:
+                if self.foward_duration < 0: #25 cycles passed, switch states
                     self.foward_duration = 25
                     self.current_speed = 0
                     self.state = 'turn'
-            elif self.state == 'turn':
+            elif self.state == 'turn': # robot in 'turn' state
                 self.current_turn_speed = self.turn_speed
                 self.turn_duration -= 1
-                if self.turn_duration < 0:
+                if self.turn_duration < 0: #25 cycles passed, switch states
                     self.turn_duration = 25
                     self.current_turn_speed = 0
                     self.state = 'foward'
