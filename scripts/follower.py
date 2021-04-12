@@ -8,8 +8,7 @@ from sensor_msgs.msg import LaserScan
 class Follower(object):
     """Follower object that subscribes to /scan, gets nearest object, and publishes to /cmd_vel to follow it"""
 
-    # note default value of turn speed is an approximation of pi/10,
-    # so that when 5 seconds are spent turning, a 90 degree turn is made
+    # initialize values for object
     def __init__(self, speed_update_size:int = 0.1):
         rospy.init_node('follower')
         self.publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=10)

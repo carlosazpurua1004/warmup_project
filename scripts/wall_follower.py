@@ -10,8 +10,7 @@ class Follower(object):
     """WallFollower object that subscribes to /scan and publishes to /cmd_vel to follow the wall
     Note that this works best when inside covnex shapes """
 
-    # note default value of turn speed is an approximation of pi/10,
-    # so that when 5 seconds are spent turning, a 90 degree turn is made
+    # initialize values for object
     def __init__(self):
         rospy.init_node('follower')
         self.publisher = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
