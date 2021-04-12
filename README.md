@@ -18,5 +18,7 @@
 * **Future Work** \
  I would write more general code that would be able to control and adjust the velocity of the robot. Adjusting the velocity of the robot often felt very clunky, and was "dangerous" in the sense that it could cause a lot of problems if not done well. I would like to be able to more smoothly and intuitively have the robot adjust its velocity in all tasks.
 * **Take aways **
-  * **Things do not work as expected.**
-  * b
+  * **Things do not work as expected**\
+    As I mentioned in my challenges, because of noise things to not work as expected; but this isn't the only reason this happens. A few times, I found myself trying to implement a solution that would maybe work in some cases, but not others, or maybe work in ways that I didn't expect them too, or simply not work at all. Sometimes this was due to bugs in my implementation, but conceptual errors happened too. Expirementation helped me overcome this, but for more complex robots I think I should probably thoroughly sketch out the behavior and design before writing code.
+  * **Incremental Approaches Can wWrk**\
+    Sometimes I found or implemented solutions that had some functionality, but not complete. For example, the wall follower, I initially managed to get it to follow walls, it would just not turn fast enough and end up closer and closer to the wall. This inspired my idea to adjust the robots turn according to its distance to the wall its following, which worked brilliantly. I think its alright to implement some functionalities of the robot, especially when just trying to get a grasp on the problem, and then to build on the solutions you currently have.
